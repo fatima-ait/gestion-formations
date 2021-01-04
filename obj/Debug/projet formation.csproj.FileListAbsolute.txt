@@ -1,0 +1,48 @@
+C:\Users\Fatima\Desktop\projet formation\projet formation\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Fatima\Desktop\projet formation\projet formation\obj\Debug\RdlCompile.cache
+C:\Users\Fatima\Desktop\projet formation\projet formation\obj\Debug\RdlCompile.compiled
+C:\Users\Fatima\Desktop\projet formation\projet formation\bin\projet formation.dll
+C:\Users\Fatima\Desktop\projet formation\projet formation\bin\projet formation.pdb
+C:\Users\Fatima\Desktop\projet formation\projet formation\obj\Debug\projet formation.dll
+C:\Users\Fatima\Desktop\projet formation\projet formation\obj\Debug\projet formation.pdb
+C:\Users\salih\Documents\Visual Studio 2010\Projects\projet formation\obj\Debug\RdlCompile.cache
+C:\Users\salih\Documents\Visual Studio 2010\Projects\projet formation\obj\Debug\RdlCompile.compiled
+C:\Users\salih\Documents\Visual Studio 2010\Projects\projet formation\bin\projet formation.dll
+C:\Users\salih\Documents\Visual Studio 2010\Projects\projet formation\bin\projet formation.pdb
+C:\Users\salih\Documents\Visual Studio 2010\Projects\projet formation\obj\Debug\projet formation.dll
+C:\Users\salih\Documents\Visual Studio 2010\Projects\projet formation\obj\Debug\projet formation.pdb
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\obj\Debug\projet formation.csprojResolveAssemblyReference.cache
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\obj\Debug\RdlCompile.cache
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\obj\Debug\RdlCompile.compiled
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\bin\projet_formation.dll.config
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\bin\projet_formation.dll
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\bin\projet_formation.pdb
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\obj\Debug\projet_formation.dll
+C:\Users\salih\Documents\Visual Studio 2013\Projects\projet formation\obj\Debug\projet_formation.pdb
+C:\Users\Fatima\Desktop\projet formation\bin\projet_formation.dll.config
+C:\Users\Fatima\Desktop\projet formation\bin\projet_formation.dll
+C:\Users\Fatima\Desktop\projet formation\bin\projet_formation.pdb
+C:\Users\Fatima\Desktop\projet formation\obj\Debug\projet formation.csprojResolveAssemblyReference.cache
+C:\Users\Fatima\Desktop\projet formation\obj\Debug\RdlCompile.cache
+C:\Users\Fatima\Desktop\projet formation\obj\Debug\RdlCompile.compiled
+C:\Users\Fatima\Desktop\projet formation\obj\Debug\projet_formation.dll
+C:\Users\Fatima\Desktop\projet formation\obj\Debug\projet_formation.pdb
+D:\projet formation\bin\projet_formation.dll.config
+D:\projet formation\bin\projet_formation.dll
+D:\projet formation\bin\projet_formation.pdb
+D:\projet formation\obj\Debug\RdlCompile.cache
+D:\projet formation\obj\Debug\RdlCompile.compiled
+D:\projet formation\obj\Debug\projet_formation.dll
+D:\projet formation\obj\Debug\projet_formation.pdb
+D:\projet formation\obj\Debug\projet formation.csprojResolveAssemblyReference.cache
+D:\a DATA Fatima\projet formation\bin\projet_formation.dll.config
+D:\a DATA Fatima\projet formation\bin\projet_formation.dll
+D:\a DATA Fatima\projet formation\bin\projet_formation.pdb
+D:\a DATA Fatima\projet formation\obj\Debug\projet formation.csprojResolveAssemblyReference.cache
+D:\a DATA Fatima\projet formation\obj\Debug\RdlCompile.cache
+D:\a DATA Fatima\projet formation\obj\Debug\RdlCompile.compiled
+D:\a DATA Fatima\projet formation\obj\Debug\projet_formation.dll
+D:\a DATA Fatima\projet formation\obj\Debug\projet_formation.pdb
+D:\a DATA Fatima\projet formation\obj\Debug\ResolveAssemblyReference.cache
+D:\a DATA Fatima\projet formation\obj\Debug\projet formation.csprojAssemblyReference.cache
+D:\a DATA Fatima\projet formation\obj\Debug\projet formation.csproj.CoreCompileInputs.cache

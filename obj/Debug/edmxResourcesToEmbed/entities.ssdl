@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FORMATIONModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="FORMATIONModelStoreContainer">
+    <EntitySet Name="administrateur" EntityType="FORMATIONModel.Store.administrateur" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Filiere" EntityType="FORMATIONModel.Store.Filiere" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="fonctionnaire" EntityType="FORMATIONModel.Store.fonctionnaire" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="formateurs" EntityType="FORMATIONModel.Store.formateurs" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Formation" EntityType="FORMATIONModel.Store.Formation" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="formation_fonctionnaire" EntityType="FORMATIONModel.Store.formation_fonctionnaire" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Tribunal" EntityType="FORMATIONModel.Store.Tribunal" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_FILIEIRE_Tribunal" Association="FORMATIONModel.Store.FK_FILIEIRE_Tribunal">
+      <End Role="Tribunal" EntitySet="Tribunal" />
+      <End Role="Filiere" EntitySet="Filiere" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fonctionnaire_Filiere" Association="FORMATIONModel.Store.FK_fonctionnaire_Filiere">
+      <End Role="Filiere" EntitySet="Filiere" />
+      <End Role="fonctionnaire" EntitySet="fonctionnaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Formation__formateurs" Association="FORMATIONModel.Store.FK_Formation__formateurs">
+      <End Role="formateurs" EntitySet="formateurs" />
+      <End Role="Formation" EntitySet="Formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formation_fonctionnaire_fonctionnaire" Association="FORMATIONModel.Store.FK_formation_fonctionnaire_fonctionnaire">
+      <End Role="fonctionnaire" EntitySet="fonctionnaire" />
+      <End Role="formation_fonctionnaire" EntitySet="formation_fonctionnaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formation_fonctionnaire_Formation_" Association="FORMATIONModel.Store.FK_formation_fonctionnaire_Formation_">
+      <End Role="Formation" EntitySet="Formation" />
+      <End Role="formation_fonctionnaire" EntitySet="formation_fonctionnaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Formation_Tribunal" Association="FORMATIONModel.Store.FK_Formation_Tribunal">
+      <End Role="Tribunal" EntitySet="Tribunal" />
+      <End Role="Formation" EntitySet="Formation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="administrateur">
+    <Key>
+      <PropertyRef Name="login" />
+      <PropertyRef Name="mot_d_passe" />
+    </Key>
+    <Property Name="login" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="mot_d_passe" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Filiere">
+    <Key>
+      <PropertyRef Name="ID_Filere" />
+    </Key>
+    <Property Name="ID_Filere" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ID_tribunal" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="fonctionnaire">
+    <Key>
+      <PropertyRef Name="SOM" />
+    </Key>
+    <Property Name="SOM" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="nom_f" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="prenom_f" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="adresse" Type="varchar" MaxLength="50" />
+    <Property Name="poste" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="date_embauche" Type="date" Nullable="false" />
+    <Property Name="lieu_naissance" Type="varchar" MaxLength="50" />
+    <Property Name="date_naissance" Type="date" />
+    <Property Name="ID_Filiere" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="formateurs">
+    <Key>
+      <PropertyRef Name="matricule_form" />
+    </Key>
+    <Property Name="matricule_form" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="NOM" Type="varchar" MaxLength="50" />
+    <Property Name="prenom" Type="varchar" MaxLength="50" />
+    <Property Name="grade" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Formation">
+    <Key>
+      <PropertyRef Name="id_formation" />
+    </Key>
+    <Property Name="id_formation" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="matricule_form" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="date_debut" Type="date" Nullable="false" />
+    <Property Name="date_fin" Type="date" Nullable="false" />
+    <Property Name="nom_for" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="id_tribunal" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="formation_fonctionnaire">
+    <Key>
+      <PropertyRef Name="SOM" />
+      <PropertyRef Name="id_formation" />
+    </Key>
+    <Property Name="SOM" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="id_formation" Type="nchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Tribunal">
+    <Key>
+      <PropertyRef Name="ID_tribunal" />
+    </Key>
+    <Property Name="ID_tribunal" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="adresse" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="téléphone" Type="char" Nullable="false" MaxLength="12" />
+  </EntityType>
+  <Association Name="FK_FILIEIRE_Tribunal">
+    <End Role="Tribunal" Type="FORMATIONModel.Store.Tribunal" Multiplicity="1" />
+    <End Role="Filiere" Type="FORMATIONModel.Store.Filiere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tribunal">
+        <PropertyRef Name="ID_tribunal" />
+      </Principal>
+      <Dependent Role="Filiere">
+        <PropertyRef Name="ID_tribunal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fonctionnaire_Filiere">
+    <End Role="Filiere" Type="FORMATIONModel.Store.Filiere" Multiplicity="1" />
+    <End Role="fonctionnaire" Type="FORMATIONModel.Store.fonctionnaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filiere">
+        <PropertyRef Name="ID_Filere" />
+      </Principal>
+      <Dependent Role="fonctionnaire">
+        <PropertyRef Name="ID_Filiere" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Formation__formateurs">
+    <End Role="formateurs" Type="FORMATIONModel.Store.formateurs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Formation" Type="FORMATIONModel.Store.Formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateurs">
+        <PropertyRef Name="matricule_form" />
+      </Principal>
+      <Dependent Role="Formation">
+        <PropertyRef Name="matricule_form" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formation_fonctionnaire_fonctionnaire">
+    <End Role="fonctionnaire" Type="FORMATIONModel.Store.fonctionnaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="formation_fonctionnaire" Type="FORMATIONModel.Store.formation_fonctionnaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fonctionnaire">
+        <PropertyRef Name="SOM" />
+      </Principal>
+      <Dependent Role="formation_fonctionnaire">
+        <PropertyRef Name="SOM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formation_fonctionnaire_Formation_">
+    <End Role="Formation" Type="FORMATIONModel.Store.Formation" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="formation_fonctionnaire" Type="FORMATIONModel.Store.formation_fonctionnaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formation">
+        <PropertyRef Name="id_formation" />
+      </Principal>
+      <Dependent Role="formation_fonctionnaire">
+        <PropertyRef Name="id_formation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Formation_Tribunal">
+    <End Role="Tribunal" Type="FORMATIONModel.Store.Tribunal" Multiplicity="1" />
+    <End Role="Formation" Type="FORMATIONModel.Store.Formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tribunal">
+        <PropertyRef Name="ID_tribunal" />
+      </Principal>
+      <Dependent Role="Formation">
+        <PropertyRef Name="id_tribunal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

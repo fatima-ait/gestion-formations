@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ImpressionDataSet" targetNamespace="http://tempuri.org/ImpressionDataSet.xsd" xmlns:mstns="http://tempuri.org/ImpressionDataSet.xsd" xmlns="http://tempuri.org/ImpressionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Reporting" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Reporting (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Reporting.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_1TableAdapter" GeneratorDataComponentClassName="View_1TableAdapter" Name="View_1" UserDataComponentName="View_1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Reporting (Web.config)" DbObjectName="FORMATION.dbo.View_1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nom_for, date_debut, date_fin, NomFormateur, PrenomFormateur, Juridiction, Entite, NomFonc, PrenomFonc FROM dbo.View_1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nom_for" DataSetColumn="nom_for" />
+              <Mapping SourceColumn="date_debut" DataSetColumn="date_debut" />
+              <Mapping SourceColumn="date_fin" DataSetColumn="date_fin" />
+              <Mapping SourceColumn="NomFormateur" DataSetColumn="NomFormateur" />
+              <Mapping SourceColumn="PrenomFormateur" DataSetColumn="PrenomFormateur" />
+              <Mapping SourceColumn="Juridiction" DataSetColumn="Juridiction" />
+              <Mapping SourceColumn="Entite" DataSetColumn="Entite" />
+              <Mapping SourceColumn="NomFonc" DataSetColumn="NomFonc" />
+              <Mapping SourceColumn="PrenomFonc" DataSetColumn="PrenomFonc" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ImpressionDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ImpressionDataSet" msprop:Generator_UserDSName="ImpressionDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_1" msprop:Generator_TableClassName="View_1DataTable" msprop:Generator_TableVarName="tableView_1" msprop:Generator_TablePropName="View_1" msprop:Generator_RowDeletingName="View_1RowDeleting" msprop:Generator_RowChangingName="View_1RowChanging" msprop:Generator_RowEvHandlerName="View_1RowChangeEventHandler" msprop:Generator_RowDeletedName="View_1RowDeleted" msprop:Generator_UserTableName="View_1" msprop:Generator_RowChangedName="View_1RowChanged" msprop:Generator_RowEvArgName="View_1RowChangeEvent" msprop:Generator_RowClassName="View_1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nom_for" msprop:Generator_ColumnVarNameInTable="columnnom_for" msprop:Generator_ColumnPropNameInRow="nom_for" msprop:Generator_ColumnPropNameInTable="nom_forColumn" msprop:Generator_UserColumnName="nom_for">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="256" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_debut" msprop:Generator_ColumnVarNameInTable="columndate_debut" msprop:Generator_ColumnPropNameInRow="date_debut" msprop:Generator_ColumnPropNameInTable="date_debutColumn" msprop:Generator_UserColumnName="date_debut" type="xs:dateTime" />
+              <xs:element name="date_fin" msprop:Generator_ColumnVarNameInTable="columndate_fin" msprop:Generator_ColumnPropNameInRow="date_fin" msprop:Generator_ColumnPropNameInTable="date_finColumn" msprop:Generator_UserColumnName="date_fin" type="xs:dateTime" />
+              <xs:element name="NomFormateur" msprop:Generator_ColumnVarNameInTable="columnNomFormateur" msprop:Generator_ColumnPropNameInRow="NomFormateur" msprop:Generator_ColumnPropNameInTable="NomFormateurColumn" msprop:Generator_UserColumnName="NomFormateur" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrenomFormateur" msprop:Generator_ColumnVarNameInTable="columnPrenomFormateur" msprop:Generator_ColumnPropNameInRow="PrenomFormateur" msprop:Generator_ColumnPropNameInTable="PrenomFormateurColumn" msprop:Generator_UserColumnName="PrenomFormateur" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Juridiction" msprop:Generator_ColumnVarNameInTable="columnJuridiction" msprop:Generator_ColumnPropNameInRow="Juridiction" msprop:Generator_ColumnPropNameInTable="JuridictionColumn" msprop:Generator_UserColumnName="Juridiction">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="256" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Entite" msprop:Generator_ColumnVarNameInTable="columnEntite" msprop:Generator_ColumnPropNameInRow="Entite" msprop:Generator_ColumnPropNameInTable="EntiteColumn" msprop:Generator_UserColumnName="Entite" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="256" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NomFonc" msprop:Generator_ColumnVarNameInTable="columnNomFonc" msprop:Generator_ColumnPropNameInRow="NomFonc" msprop:Generator_ColumnPropNameInTable="NomFoncColumn" msprop:Generator_UserColumnName="NomFonc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrenomFonc" msprop:Generator_ColumnVarNameInTable="columnPrenomFonc" msprop:Generator_ColumnPropNameInRow="PrenomFonc" msprop:Generator_ColumnPropNameInTable="PrenomFoncColumn" msprop:Generator_UserColumnName="PrenomFonc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

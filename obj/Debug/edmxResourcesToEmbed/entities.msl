@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FORMATIONModelStoreContainer" CdmEntityContainer="FORMATIONEntities">
+    <EntitySetMapping Name="administrateur">
+      <EntityTypeMapping TypeName="FORMATIONModel.administrateur">
+        <MappingFragment StoreEntitySet="administrateur">
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="mot_d_passe" ColumnName="mot_d_passe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filiere">
+      <EntityTypeMapping TypeName="FORMATIONModel.Filiere">
+        <MappingFragment StoreEntitySet="Filiere">
+          <ScalarProperty Name="ID_Filere" ColumnName="ID_Filere" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="ID_tribunal" ColumnName="ID_tribunal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fonctionnaire">
+      <EntityTypeMapping TypeName="FORMATIONModel.fonctionnaire">
+        <MappingFragment StoreEntitySet="fonctionnaire">
+          <ScalarProperty Name="SOM" ColumnName="SOM" />
+          <ScalarProperty Name="nom_f" ColumnName="nom_f" />
+          <ScalarProperty Name="prenom_f" ColumnName="prenom_f" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="poste" ColumnName="poste" />
+          <ScalarProperty Name="date_embauche" ColumnName="date_embauche" />
+          <ScalarProperty Name="lieu_naissance" ColumnName="lieu_naissance" />
+          <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+          <ScalarProperty Name="ID_Filiere" ColumnName="ID_Filiere" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formateurs">
+      <EntityTypeMapping TypeName="FORMATIONModel.formateurs">
+        <MappingFragment StoreEntitySet="formateurs">
+          <ScalarProperty Name="matricule_form" ColumnName="matricule_form" />
+          <ScalarProperty Name="NOM" ColumnName="NOM" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formation">
+      <EntityTypeMapping TypeName="FORMATIONModel.Formation">
+        <MappingFragment StoreEntitySet="Formation">
+          <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+          <ScalarProperty Name="matricule_form" ColumnName="matricule_form" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+          <ScalarProperty Name="nom_for" ColumnName="nom_for" />
+          <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tribunal">
+      <EntityTypeMapping TypeName="FORMATIONModel.Tribunal">
+        <MappingFragment StoreEntitySet="Tribunal">
+          <ScalarProperty Name="ID_tribunal" ColumnName="ID_tribunal" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="téléphone" ColumnName="téléphone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="formation_fonctionnaire" TypeName="FORMATIONModel.formation_fonctionnaire" StoreEntitySet="formation_fonctionnaire">
+      <EndProperty Name="fonctionnaire">
+        <ScalarProperty Name="SOM" ColumnName="SOM" />
+      </EndProperty>
+      <EndProperty Name="Formation">
+        <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

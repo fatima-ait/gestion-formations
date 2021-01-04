@@ -1,0 +1,134 @@
+﻿<%@ Master Language="C#"  
+ AutoEventWireup="true" 
+ CodeBehind="~/formationm.Master.cs"
+ Inherits="projet_formation.formationm" %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 
+    1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="App_Themes/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-2.1.4.min.js" type="text/javascript">
+    </script>
+    <style type="text/css">
+        .style8
+        {
+            height: 218px;
+            width: 338px;
+        }        
+        .style10
+        {
+            width: 702px;
+            height: 227px;
+        }
+        .style11
+        {
+            width: 5px;
+            height: 227px;
+        }
+        .style12
+        {
+            width: 499px;
+            margin-left: 0px;
+        }
+        
+      
+           
+    </style>
+</head>
+<body>
+    <form id="Form1" runat="server">
+ 
+  <div id="wrap" 
+        
+        style="padding: inherit; margin: auto; background-image: url('/IMAGE FOLDER/img.jpg'); background-repeat: no-repeat;">
+
+  <div id="1"          
+            
+          style="background: #000000 url('IMAGE%20FOLDER/images%20(2).jpg') no-repeat fixed center; font-size: large; padding: inherit; margin: 0px auto auto auto;
+             border: thick none #C0C0C0; height: 215px; " 
+          align="right">
+          <table   class="sss">
+           
+                <tr>
+                    <td class="style10">
+                         
+                         <img alt="" class="style8" src="IMAGE%20FOLDER/etudes_de_droit1.jpg" />
+                </td>
+                <td><asp:Image ID="Image1" runat="server" ImageUrl="~/IMAGE FOLDER/img.jpg" 
+                        Height="209px" Width="227px" /></td>
+                    <td class="style11">
+ <MARQUEE  scrollamount="10" scrolldelay="1"  direction="scrolle" onmouseout="this.start()" onmouseover="this.stop()" class="style12">
+
+<IMG src="IMAGE%20FOLDER/img.jpg" height="200" width="300">
+<IMG src="IMAGE%20FOLDER/img1.jpg" height="200" width="300">
+<IMG src="IMAGE%20FOLDER/img2.jpg" height="200" width="300">
+<IMG src="IMAGE%20FOLDER/img3.jpg" height="200" width="300">
+</MARQUEE>
+
+</td>
+                </tr>
+            </table>
+          
+                </div>
+
+  <div id="navig">
+                    <ul id="menu" dir="ltr">
+            <li ><a href="PRINCIPALE.aspx"> الرئيسية  </a></li>
+            <li> <a href="admin.aspx">تسجيل الخروج</a></li>
+            <li><a href ="formations.aspx">  لائحة التكوينات </a></li>
+            <li><a href ="formateurs.aspx">لائحة المؤطرين</a></li>
+             <li><a href ="fonctionnaires.aspx"> لائحة الموظفين</a></li>
+              <li><a href ="filiere.aspx">لائحة الشعب</a></li>
+              <li><a href ="formation_fonctionnaire.aspx">تكوينات جديدة</a></li>
+              
+                        <li><a href="report.aspx">حفظ البيانات</a></li>
+
+                        <asp:Label ID="Label1" runat="server" Text="admin"></asp:Label>
+
+             </ul>
+                </div>
+                
+                
+  <div id="content-ear">      
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+          
+        </asp:ContentPlaceHolder>
+       </div>
+
+<div id="sidebar">
+       <ul id="menu-accordeon" 
+            style="line-height: normal; clip: rect(auto, auto, auto, auto)" 
+          type="circle">
+                <li><a href="formationdonnees.aspx">ارشيف</a></li>             
+              
+                <li><a href="WebForm.aspx">معلومات</a>
+                <li>
+                     <a href="http://localhost:52500/annuel.aspx">تكوينات</a> </li>
+                <li><a href="http://localhost:52500/consolidé.aspx">عطل </a></li>
+                <li>
+                <a href="http://localhost:52500/consolidé.aspx">دروس </a></li>
+            </ul>      
+        
+     
+        
+       </div>  
+         <asp:ImageButton ID="ImageButton1" runat="server" CssClass="style13" 
+           Height="31px" ImageUrl="~/IMAGE FOLDER/fb.jpg" Width="36px" /> 
+    
+    
+      CCVSS<div id="footer" 
+          style="height: 65px; background-color: #000000; color: #FFFFFF; text-decoration: underline overline;"> <br />
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>  مركز تكوين الموظفين  <br />      
+          <br />
+      </div>
+        
+        </div>         
+    </form>
+</body>
+</html>

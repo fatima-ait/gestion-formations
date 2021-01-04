@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FORMATIONModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FORMATIONModelStoreContainer">
+          <EntitySet Name="administrateur" EntityType="FORMATIONModel.Store.administrateur" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Filiere" EntityType="FORMATIONModel.Store.Filiere" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="fonctionnaire" EntityType="FORMATIONModel.Store.fonctionnaire" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="formateurs" EntityType="FORMATIONModel.Store.formateurs" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Formation" EntityType="FORMATIONModel.Store.Formation" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="formation_fonctionnaire" EntityType="FORMATIONModel.Store.formation_fonctionnaire" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Tribunal" EntityType="FORMATIONModel.Store.Tribunal" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_FILIEIRE_Tribunal" Association="FORMATIONModel.Store.FK_FILIEIRE_Tribunal">
+            <End Role="Tribunal" EntitySet="Tribunal" />
+            <End Role="Filiere" EntitySet="Filiere" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fonctionnaire_Filiere" Association="FORMATIONModel.Store.FK_fonctionnaire_Filiere">
+            <End Role="Filiere" EntitySet="Filiere" />
+            <End Role="fonctionnaire" EntitySet="fonctionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formation__formateurs" Association="FORMATIONModel.Store.FK_Formation__formateurs">
+            <End Role="formateurs" EntitySet="formateurs" />
+            <End Role="Formation" EntitySet="Formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_formation_fonctionnaire_fonctionnaire" Association="FORMATIONModel.Store.FK_formation_fonctionnaire_fonctionnaire">
+            <End Role="fonctionnaire" EntitySet="fonctionnaire" />
+            <End Role="formation_fonctionnaire" EntitySet="formation_fonctionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_formation_fonctionnaire_Formation_" Association="FORMATIONModel.Store.FK_formation_fonctionnaire_Formation_">
+            <End Role="Formation" EntitySet="Formation" />
+            <End Role="formation_fonctionnaire" EntitySet="formation_fonctionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formation_Tribunal" Association="FORMATIONModel.Store.FK_Formation_Tribunal">
+            <End Role="Tribunal" EntitySet="Tribunal" />
+            <End Role="Formation" EntitySet="Formation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="administrateur">
+          <Key>
+            <PropertyRef Name="login" />
+            <PropertyRef Name="mot_d_passe" />
+          </Key>
+          <Property Name="login" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="mot_d_passe" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Filiere">
+          <Key>
+            <PropertyRef Name="ID_Filere" />
+          </Key>
+          <Property Name="ID_Filere" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ID_tribunal" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="fonctionnaire">
+          <Key>
+            <PropertyRef Name="SOM" />
+          </Key>
+          <Property Name="SOM" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="nom_f" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="prenom_f" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="adresse" Type="varchar" MaxLength="50" />
+          <Property Name="poste" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="date_embauche" Type="date" Nullable="false" />
+          <Property Name="lieu_naissance" Type="varchar" MaxLength="50" />
+          <Property Name="date_naissance" Type="date" />
+          <Property Name="ID_Filiere" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="formateurs">
+          <Key>
+            <PropertyRef Name="matricule_form" />
+          </Key>
+          <Property Name="matricule_form" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="NOM" Type="varchar" MaxLength="50" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" />
+          <Property Name="grade" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Formation">
+          <Key>
+            <PropertyRef Name="id_formation" />
+          </Key>
+          <Property Name="id_formation" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="matricule_form" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="date_debut" Type="date" Nullable="false" />
+          <Property Name="date_fin" Type="date" Nullable="false" />
+          <Property Name="nom_for" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="id_tribunal" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="formation_fonctionnaire">
+          <Key>
+            <PropertyRef Name="SOM" />
+            <PropertyRef Name="id_formation" />
+          </Key>
+          <Property Name="SOM" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="id_formation" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Tribunal">
+          <Key>
+            <PropertyRef Name="ID_tribunal" />
+          </Key>
+          <Property Name="ID_tribunal" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="adresse" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="téléphone" Type="char" Nullable="false" MaxLength="12" />
+        </EntityType>
+        <Association Name="FK_FILIEIRE_Tribunal">
+          <End Role="Tribunal" Type="FORMATIONModel.Store.Tribunal" Multiplicity="1" />
+          <End Role="Filiere" Type="FORMATIONModel.Store.Filiere" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunal">
+              <PropertyRef Name="ID_tribunal" />
+            </Principal>
+            <Dependent Role="Filiere">
+              <PropertyRef Name="ID_tribunal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fonctionnaire_Filiere">
+          <End Role="Filiere" Type="FORMATIONModel.Store.Filiere" Multiplicity="1" />
+          <End Role="fonctionnaire" Type="FORMATIONModel.Store.fonctionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filiere">
+              <PropertyRef Name="ID_Filere" />
+            </Principal>
+            <Dependent Role="fonctionnaire">
+              <PropertyRef Name="ID_Filiere" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formation__formateurs">
+          <End Role="formateurs" Type="FORMATIONModel.Store.formateurs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Formation" Type="FORMATIONModel.Store.Formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formateurs">
+              <PropertyRef Name="matricule_form" />
+            </Principal>
+            <Dependent Role="Formation">
+              <PropertyRef Name="matricule_form" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_formation_fonctionnaire_fonctionnaire">
+          <End Role="fonctionnaire" Type="FORMATIONModel.Store.fonctionnaire" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="formation_fonctionnaire" Type="FORMATIONModel.Store.formation_fonctionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fonctionnaire">
+              <PropertyRef Name="SOM" />
+            </Principal>
+            <Dependent Role="formation_fonctionnaire">
+              <PropertyRef Name="SOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_formation_fonctionnaire_Formation_">
+          <End Role="Formation" Type="FORMATIONModel.Store.Formation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="formation_fonctionnaire" Type="FORMATIONModel.Store.formation_fonctionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="id_formation" />
+            </Principal>
+            <Dependent Role="formation_fonctionnaire">
+              <PropertyRef Name="id_formation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formation_Tribunal">
+          <End Role="Tribunal" Type="FORMATIONModel.Store.Tribunal" Multiplicity="1" />
+          <End Role="Formation" Type="FORMATIONModel.Store.Formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunal">
+              <PropertyRef Name="ID_tribunal" />
+            </Principal>
+            <Dependent Role="Formation">
+              <PropertyRef Name="id_tribunal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FORMATIONModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="FORMATIONEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="administrateur" EntityType="FORMATIONModel.administrateur" />
+          <EntitySet Name="Filiere" EntityType="FORMATIONModel.Filiere" />
+          <EntitySet Name="fonctionnaire" EntityType="FORMATIONModel.fonctionnaire" />
+          <EntitySet Name="formateurs" EntityType="FORMATIONModel.formateurs" />
+          <EntitySet Name="Formation" EntityType="FORMATIONModel.Formation" />
+          <EntitySet Name="Tribunal" EntityType="FORMATIONModel.Tribunal" />
+          <AssociationSet Name="FK_FILIEIRE_Tribunal" Association="FORMATIONModel.FK_FILIEIRE_Tribunal">
+            <End Role="Tribunal" EntitySet="Tribunal" />
+            <End Role="Filiere" EntitySet="Filiere" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fonctionnaire_Filiere" Association="FORMATIONModel.FK_fonctionnaire_Filiere">
+            <End Role="Filiere" EntitySet="Filiere" />
+            <End Role="fonctionnaire" EntitySet="fonctionnaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formation__formateurs" Association="FORMATIONModel.FK_Formation__formateurs">
+            <End Role="formateurs" EntitySet="formateurs" />
+            <End Role="Formation" EntitySet="Formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formation_Tribunal" Association="FORMATIONModel.FK_Formation_Tribunal">
+            <End Role="Tribunal" EntitySet="Tribunal" />
+            <End Role="Formation" EntitySet="Formation" />
+          </AssociationSet>
+          <AssociationSet Name="formation_fonctionnaire" Association="FORMATIONModel.formation_fonctionnaire">
+            <End Role="fonctionnaire" EntitySet="fonctionnaire" />
+            <End Role="Formation" EntitySet="Formation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="administrateur">
+          <Key>
+            <PropertyRef Name="login" />
+            <PropertyRef Name="mot_d_passe" />
+          </Key>
+          <Property Name="login" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mot_d_passe" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Filiere">
+          <Key>
+            <PropertyRef Name="ID_Filere" />
+          </Key>
+          <Property Name="ID_Filere" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ID_tribunal" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Tribunal" Relationship="FORMATIONModel.FK_FILIEIRE_Tribunal" FromRole="Filiere" ToRole="Tribunal" />
+          <NavigationProperty Name="fonctionnaire" Relationship="FORMATIONModel.FK_fonctionnaire_Filiere" FromRole="Filiere" ToRole="fonctionnaire" />
+        </EntityType>
+        <EntityType Name="fonctionnaire">
+          <Key>
+            <PropertyRef Name="SOM" />
+          </Key>
+          <Property Name="SOM" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="nom_f" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="prenom_f" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="poste" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="date_embauche" Type="DateTime" Nullable="false" />
+          <Property Name="lieu_naissance" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="date_naissance" Type="DateTime" />
+          <Property Name="ID_Filiere" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Filiere" Relationship="FORMATIONModel.FK_fonctionnaire_Filiere" FromRole="fonctionnaire" ToRole="Filiere" />
+          <NavigationProperty Name="Formation" Relationship="FORMATIONModel.formation_fonctionnaire" FromRole="fonctionnaire" ToRole="Formation" />
+        </EntityType>
+        <EntityType Name="formateurs">
+          <Key>
+            <PropertyRef Name="matricule_form" />
+          </Key>
+          <Property Name="matricule_form" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="NOM" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="grade" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Formation" Relationship="FORMATIONModel.FK_Formation__formateurs" FromRole="formateurs" ToRole="Formation" />
+        </EntityType>
+        <EntityType Name="Formation">
+          <Key>
+            <PropertyRef Name="id_formation" />
+          </Key>
+          <Property Name="id_formation" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="matricule_form" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="date_debut" Type="DateTime" Nullable="false" />
+          <Property Name="date_fin" Type="DateTime" Nullable="false" />
+          <Property Name="nom_for" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="id_tribunal" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="formateurs" Relationship="FORMATIONModel.FK_Formation__formateurs" FromRole="Formation" ToRole="formateurs" />
+          <NavigationProperty Name="Tribunal" Relationship="FORMATIONModel.FK_Formation_Tribunal" FromRole="Formation" ToRole="Tribunal" />
+          <NavigationProperty Name="fonctionnaire" Relationship="FORMATIONModel.formation_fonctionnaire" FromRole="Formation" ToRole="fonctionnaire" />
+        </EntityType>
+        <EntityType Name="Tribunal">
+          <Key>
+            <PropertyRef Name="ID_tribunal" />
+          </Key>
+          <Property Name="ID_tribunal" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="adresse" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="téléphone" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Filiere" Relationship="FORMATIONModel.FK_FILIEIRE_Tribunal" FromRole="Tribunal" ToRole="Filiere" />
+          <NavigationProperty Name="Formation" Relationship="FORMATIONModel.FK_Formation_Tribunal" FromRole="Tribunal" ToRole="Formation" />
+        </EntityType>
+        <Association Name="FK_FILIEIRE_Tribunal">
+          <End Role="Tribunal" Type="FORMATIONModel.Tribunal" Multiplicity="1" />
+          <End Role="Filiere" Type="FORMATIONModel.Filiere" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunal">
+              <PropertyRef Name="ID_tribunal" />
+            </Principal>
+            <Dependent Role="Filiere">
+              <PropertyRef Name="ID_tribunal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fonctionnaire_Filiere">
+          <End Role="Filiere" Type="FORMATIONModel.Filiere" Multiplicity="1" />
+          <End Role="fonctionnaire" Type="FORMATIONModel.fonctionnaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filiere">
+              <PropertyRef Name="ID_Filere" />
+            </Principal>
+            <Dependent Role="fonctionnaire">
+              <PropertyRef Name="ID_Filiere" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formation__formateurs">
+          <End Role="formateurs" Type="FORMATIONModel.formateurs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Formation" Type="FORMATIONModel.Formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formateurs">
+              <PropertyRef Name="matricule_form" />
+            </Principal>
+            <Dependent Role="Formation">
+              <PropertyRef Name="matricule_form" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formation_Tribunal">
+          <End Role="Tribunal" Type="FORMATIONModel.Tribunal" Multiplicity="1" />
+          <End Role="Formation" Type="FORMATIONModel.Formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunal">
+              <PropertyRef Name="ID_tribunal" />
+            </Principal>
+            <Dependent Role="Formation">
+              <PropertyRef Name="id_tribunal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="formation_fonctionnaire">
+          <End Role="fonctionnaire" Type="FORMATIONModel.fonctionnaire" Multiplicity="*" />
+          <End Role="Formation" Type="FORMATIONModel.Formation" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FORMATIONModelStoreContainer" CdmEntityContainer="FORMATIONEntities">
+          <EntitySetMapping Name="administrateur"><EntityTypeMapping TypeName="FORMATIONModel.administrateur"><MappingFragment StoreEntitySet="administrateur">
+            <ScalarProperty Name="login" ColumnName="login" />
+            <ScalarProperty Name="mot_d_passe" ColumnName="mot_d_passe" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Filiere"><EntityTypeMapping TypeName="FORMATIONModel.Filiere"><MappingFragment StoreEntitySet="Filiere">
+            <ScalarProperty Name="ID_Filere" ColumnName="ID_Filere" />
+            <ScalarProperty Name="nom" ColumnName="nom" />
+            <ScalarProperty Name="ID_tribunal" ColumnName="ID_tribunal" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fonctionnaire"><EntityTypeMapping TypeName="FORMATIONModel.fonctionnaire"><MappingFragment StoreEntitySet="fonctionnaire">
+            <ScalarProperty Name="SOM" ColumnName="SOM" />
+            <ScalarProperty Name="nom_f" ColumnName="nom_f" />
+            <ScalarProperty Name="prenom_f" ColumnName="prenom_f" />
+            <ScalarProperty Name="adresse" ColumnName="adresse" />
+            <ScalarProperty Name="poste" ColumnName="poste" />
+            <ScalarProperty Name="date_embauche" ColumnName="date_embauche" />
+            <ScalarProperty Name="lieu_naissance" ColumnName="lieu_naissance" />
+            <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+            <ScalarProperty Name="ID_Filiere" ColumnName="ID_Filiere" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="formateurs"><EntityTypeMapping TypeName="FORMATIONModel.formateurs"><MappingFragment StoreEntitySet="formateurs">
+            <ScalarProperty Name="matricule_form" ColumnName="matricule_form" />
+            <ScalarProperty Name="NOM" ColumnName="NOM" />
+            <ScalarProperty Name="prenom" ColumnName="prenom" />
+            <ScalarProperty Name="grade" ColumnName="grade" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Formation"><EntityTypeMapping TypeName="FORMATIONModel.Formation"><MappingFragment StoreEntitySet="Formation">
+            <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+            <ScalarProperty Name="matricule_form" ColumnName="matricule_form" />
+            <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+            <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+            <ScalarProperty Name="nom_for" ColumnName="nom_for" />
+            <ScalarProperty Name="id_tribunal" ColumnName="id_tribunal" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Tribunal"><EntityTypeMapping TypeName="FORMATIONModel.Tribunal"><MappingFragment StoreEntitySet="Tribunal">
+            <ScalarProperty Name="ID_tribunal" ColumnName="ID_tribunal" />
+            <ScalarProperty Name="Nom" ColumnName="Nom" />
+            <ScalarProperty Name="adresse" ColumnName="adresse" />
+            <ScalarProperty Name="téléphone" ColumnName="téléphone" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="formation_fonctionnaire" TypeName="FORMATIONModel.formation_fonctionnaire" StoreEntitySet="formation_fonctionnaire">
+            <EndProperty Name="fonctionnaire">
+              <ScalarProperty Name="SOM" ColumnName="SOM" />
+            </EndProperty>
+            <EndProperty Name="Formation">
+              <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="entities">
+        <EntityTypeShape EntityType="FORMATIONModel.administrateur" Width="1.5" PointX="0.75" PointY="4.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="FORMATIONModel.Filiere" Width="1.5" PointX="3" PointY="1.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="FORMATIONModel.fonctionnaire" Width="1.5" PointX="5.25" PointY="1" Height="3.1340950520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="FORMATIONModel.formateurs" Width="1.5" PointX="5.875" PointY="4.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="FORMATIONModel.Formation" Width="1.5" PointX="7.5" PointY="1.125" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FORMATIONModel.Tribunal" Width="1.5" PointX="0.75" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="FORMATIONModel.FK_FILIEIRE_Tribunal" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.4901432292101284" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="2.490143229210128" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="2.4901432292101284" />
+          <ConnectorPoint PointX="3" PointY="2.4901432292101284" />
+        </AssociationConnector>
+        <AssociationConnector Association="FORMATIONModel.FK_fonctionnaire_Filiere" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.4901432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="2.4901432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="FORMATIONModel.FK_Formation__formateurs" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.375" PointY="5.7401432291666667" />
+          <ConnectorPoint PointX="8.25" PointY="5.7401432291666667" />
+          <ConnectorPoint PointX="8.25" PointY="3.8744921874999996" />
+        </AssociationConnector>
+        <AssociationConnector Association="FORMATIONModel.FK_Formation_Tribunal" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.1126175599175649" />
+          <ConnectorPoint PointX="2.75" PointY="3.1126175599175649" />
+          <ConnectorPoint PointX="2.75" PointY="0.75" />
+          <ConnectorPoint PointX="8.25" PointY="0.75" />
+          <ConnectorPoint PointX="8.25" PointY="1.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="FORMATIONModel.formation_fonctionnaire" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="2.49974609375" />
+          <ConnectorPoint PointX="7.5" PointY="2.49974609375" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
